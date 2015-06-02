@@ -1,0 +1,130 @@
+[ 2015-06-02T18:31:28+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:User
+
+[ 2015-06-02T18:32:55+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-06-02T18:33:07+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-06-02T18:56:19+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-06-02T18:57:07+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-06-02T18:59:41+08:00 ] 0.0.0.0 /User/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-06-02T19:00:07+08:00 ] 0.0.0.0 /User/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-06-02T19:00:58+08:00 ] 0.0.0.0 /User/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = '133' ) LIMIT 1   [ RunTime:0.001001s ]
+
+[ 2015-06-02T19:01:58+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = 'ww' ) LIMIT 1   [ RunTime:0.001001s ]
+SQL: INSERT INTO `ab_user` (`username`,`password`) VALUES ('ww','ww') [ RunTime:0.040002s ]
+
+[ 2015-06-02T19:02:52+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = '5353' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: INSERT INTO `ab_user` (`username`,`password`) VALUES ('5353','222') [ RunTime:0.053003s ]
+
+[ 2015-06-02T19:03:06+08:00 ] 0.0.0.0 /User/register
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = 'gy' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: INSERT INTO `ab_user` (`username`,`password`) VALUES ('gy','123456') [ RunTime:0.042002s ]
+
+[ 2015-06-02T19:03:15+08:00 ] 0.0.0.0 /User/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = '12' ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2015-06-02T19:03:20+08:00 ] 0.0.0.0 /User/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = 'gy' ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2015-06-02T19:03:24+08:00 ] 0.0.0.0 /User/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_user` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_user` WHERE ( `username` = 'gy' ) LIMIT 1   [ RunTime:0.000000s ]
+

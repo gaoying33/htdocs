@@ -1,0 +1,102 @@
+[ 2015-06-02T19:18:38+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.003001s ]
+ERR: 1146:Table 'aboutus.ab_employee' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `ab_employee`
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = '12' ) LIMIT 1   [ RunTime:0.000000s ]
+ERR: 1146:Table 'aboutus.ab_employee' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `ab_employee` WHERE ( `e_loginname` = '12' ) LIMIT 1  
+
+[ 2015-06-02T19:27:24+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = 'gy' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: e_lock D:\xampp\htdocs\Admin\ManageCompanyOperate\Lib\Action\EmployeeAction.class.php 第 122 行.
+SQL: UPDATE `ab_employee` SET `e_logintime`='2015-06-02 19:27:24',`e_loginip`='0.0.0.0' WHERE ( `e_id` = 1 ) [ RunTime:0.040002s ]
+
+[ 2015-06-02T19:28:42+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.002001s ]
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = '232' ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2015-06-02T19:28:49+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = 'gy' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: e_lock D:\xampp\htdocs\Admin\ManageCompanyOperate\Lib\Action\EmployeeAction.class.php 第 122 行.
+SQL: UPDATE `ab_employee` SET `e_logintime`='2015-06-02 19:28:49',`e_loginip`='0.0.0.0' WHERE ( `e_id` = 1 ) [ RunTime:0.039003s ]
+
+[ 2015-06-02T19:52:07+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] mysql_connect(): Host 'GEMS8' is not allowed to connect to this MySQL server D:\xampp\htdocs\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+ERR: Host 'GEMS8' is not allowed to connect to this MySQL server
+
+[ 2015-06-02T19:52:47+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001001s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] mysql_connect(): Host 'GEMS8' is not allowed to connect to this MySQL server D:\xampp\htdocs\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+ERR: Host 'GEMS8' is not allowed to connect to this MySQL server
+
+[ 2015-06-02T19:58:13+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = 'gy' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: e_lock D:\xampp\htdocs\Admin\ManageCompanyOperate\Lib\Action\EmployeeAction.class.php 第 122 行.
+
+[ 2015-06-02T19:58:18+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = 'gy' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: e_lock D:\xampp\htdocs\Admin\ManageCompanyOperate\Lib\Action\EmployeeAction.class.php 第 122 行.
+
+[ 2015-06-02T19:58:22+08:00 ] 0.0.0.0 /Admin/Employee/login
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ab_employee` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `ab_employee` WHERE ( `e_loginname` = 'gy' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: e_lock D:\xampp\htdocs\Admin\ManageCompanyOperate\Lib\Action\EmployeeAction.class.php 第 122 行.
+SQL: UPDATE `ab_employee` SET `e_logintime`='2015-06-02 19:58:22',`e_loginip`='0.0.0.0' WHERE ( `e_id` = 1 ) [ RunTime:0.043003s ]
+

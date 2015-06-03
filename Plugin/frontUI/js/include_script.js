@@ -19,6 +19,6 @@ include('ajax.js.switch.js');
 include('script.js');
 //----Include-Function----
 function include(url){ 
-  document.write('<script type="text/javascript" src="js/'+ url + '"></script>'); 
+  document.write('<script type="text/javascript" src="/Plugin/frontUI/js/'+ url + '"></script>'); 
   return false ;
 }

@@ -1,22 +1,136 @@
-<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
-<html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<html lang="zh">
 <head>
+	<title>共享视界（北京）科技有限公司</title>
 	<meta charset="utf-8">
-	<title>AboutUs网 | AboutUs</title>
-	<link href="/Plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="/Plugin/jquery/jquery-2.0.3.min.js"></script>
-	<script src="/Plugin/bootstrap/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Plugin/frontUI/img/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Plugin/frontUI/img/logo.ico" type="image/x-icon" />
+    <meta name="description" content="共享视界（北京）科技有限公司">
+    <meta name="keywords" content="门户页面">
+    <meta name="author" content="Orange">
+ 	<link rel="stylesheet" href="/Plugin/frontUI/css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/Plugin/frontUI/css/style.css" type="text/css" media="screen">
+	<script type="text/javascript" src="/Plugin/frontUI/js/include_script.js"></script>
+	<!--[if lt IE 8]><div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div><![endif]-->
+  	<!--[if lt IE 9]>
+  		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  		<link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
+	   	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <link href="css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="span2">
-				<p>HI~这里是AboutUs网~</p>
-			</div>
-			<div class="span10">
-				<p>您是我们的第<?php echo ($count); ?>位访客</p>
-			</div>
-		</div>
+<!--web site spinner-->
+	<div id="webSiteLoader"></div>
+<!--page spinner-->
+	<div id="pageLoader">
+		<div>
+        </div>
 	</div>
+<!--background image-->
+	<div id="bgStretch"><img src="/Plugin/frontUI/img/bg.jpg" alt=""></div>
+<!--content wrapper-->
+	<div id="wrapper">
+		<div id="splash">
+        </div>
+<!--header-->
+		<header>
+			<div class="container">
+				<div class="menu_col">
+<!--logo and company name-->
+				<h1><a href="index.html"><img src="/Plugin/frontUI/img/logo.png" alt=""></a></h1>
+<!--menu-->	
+				<div class="navbar">
+			  		<div class="navbar-inner">
+						<ul class="sf-menu">
+							<li><a href="Index/index1">
+								<img src="/Plugin/frontUI/img/splash_icon1.png" alt="" class="menu_img">
+								<img src="/Plugin/frontUI/img/splash_icon1_over.png" alt="" class="menu_img_over">
+								<div class="base_text">主页</div>
+								<div class="num_text">01</div>
+							    </a>
+						    </li>
+                			<li><a href="index-2.html">
+                				<img src="/Plugin/frontUI/img/splash_icon2.png" alt="" class="menu_img">
+                				<img src="/Plugin/frontUI/img/splash_icon2_over.png" alt="" class="menu_img_over">
+                				<div class="base_text">公司动态</div>
+                				<div class="num_text">02</div>
+                			    </a>
+                                <!--
+                                <ul class="subMenu">
+                                    <li><a href="index-7.html">Vestibulum</a>
+                                        <ul class="subMenu2">
+                                            <li><a href="index-7.html">archive</a></li>
+                                            <li><a href="index-7.html" class="last">fresh</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="index-7.html">Lacinia</a></li>
+                                    <li><a href="index-7.html">Proin dictum </a></li>
+                                    <li><a href="index-7.html" class="last">Elementum</a></li>
+                                </ul>
+                                -->
+                            </li> 
+                            <li><a href="index-3.html">
+                            	<img src="/Plugin/frontUI/img/splash_icon3.png" alt="" class="menu_img">
+                            	<img src="/Plugin/frontUI/img/splash_icon3_over.png" alt="" class="menu_img_over">
+                            	<div class="base_text">公司简介</div>
+                            	<div class="num_text">03</div>
+                                </a>
+                            </li>
+                            <li><a href="index-4.html">
+                            	<img src="/Plugin/frontUI/img/splash_icon4.png" alt="" class="menu_img">
+                            	<img src="/Plugin/frontUI/img/splash_icon4_over.png" alt="" class="menu_img_over">
+                            	<div class="base_text">产品展示</div>
+                            	<div class="num_text">04</div>
+                                </a>
+                            </li>
+                            <li><a href="index-5.html">
+                            	<img src="/Plugin/frontUI/img/splash_icon5.png" alt="" class="menu_img">
+                            	<img src="/Plugin/frontUI/img/splash_icon5_over.png" alt="" class="menu_img_over">
+                            	<div class="base_text">招聘信息</div>
+                            	<div class="num_text">05</div>
+                                </a>
+                            </li>
+                            <li><a href="index-6.html">
+                            	<img src="/Plugin/frontUI/img/splash_icon6.png" alt="" class="menu_img">
+                            	<img src="/Plugin/frontUI/img/splash_icon6_over.png" alt="" class="menu_img_over">
+                            	<div class="base_text">联系我们</div>
+                            	<div class="num_text">06</div>
+                                </a>
+                            </li>
+                		</ul>
+					</div>
+				</div>
+			</div>
+			</div>
+		</header>
+		<!--div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >Website Template</a></div-->
+<!--content-->	
+		<section>
+            <div id="content_part">
+				<div class="container">
+					<div class="dynamicContent"></div>
+				</div>
+			</div>
+		</section>
+<!--footer-->	
+		<footer>
+			<div class="container">
+			<!--一些社交网站的图标
+				<ul class="social_icons">
+					<li><a href="#"><img src="img/soc_icon_1.png" alt=""></a></li>
+					<li><a href="#"><img src="img/soc_icon_2.png" alt=""></a></li>
+					<li><a href="#"><img src="img/soc_icon_3.png" alt=""></a></li>
+					<li><a href="#"><img src="img/soc_icon_4.png" alt=""></a></li>
+				</ul>
+			-->
+				<p>【公司版权信息】<!--Miranda  &copy;  2013 &bull; <a href="index-8.html">Privacy Policy</a> --></p>
+				<p>共享视界（北京）科技有限公司</p>
+			</div>
+		</footer>
+	</div>
+	<script type="text/javascript" src="/Plugin/frontUI/js/bootstrap.js"></script>
+<!-- coded by Val -->
 </body>
 </html>

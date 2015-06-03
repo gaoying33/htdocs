@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html lang="zh">
 <head>
 	<title>共享视界（北京）科技有限公司</title>

@@ -1,0 +1,98 @@
+body{
+background-color:#CD69C9;
+}
+
+.Qbody, .Rbody{
+background-color:#fff;
+}
+
+h1{
+font-weight:bold;
+font-size:2.2em;
+}
+
+h2{
+font-size:1.5em;
+font-weight:bold;
+}
+
+h3{
+font-weight:bold;
+}
+
+p{
+font-size:1.1em;
+}
+
+.middle{
+text-align:center;
+line-height:2em;
+}
+
+.middle img{
+text-align:center;
+wigth:50%;
+height:50%;
+}
+
+.Qbody h3{
+font-size:1.5em;
+}
+
+.question{
+width:95%;
+margin:auto;
+}
+
+.baiduPic{
+width:100%;
+}
+
+.result{
+padding:0.5em;
+}
+
+.result h1{
+color:#1874CD;
+}
+
+.result p{
+writing-mode:tb-rl;
+font-size:1.2em;
+margin-left:0.2em;
+}
+
+.result img{
+float:right;
+vertival-align:middle;
+border:0.25em solid #1874CD;
+wigth:25%;
+height:25%;
+}
+
+.result span{
+font-weight:bold;
+font-size:1.0em;
+margin-left:0.2em;
+z-index:2em;
+}
+
+.toMe{
+padding:1em;
+font-size:1em;
+width:100%;
+right:0em;
+text-align:right;
+position:absolute;
+bottom:-1em;
+}
+
+.toMe a{
+color:#FF0000;
+font-weight:bold;
+line-height:4.5em;
+}
+
+.toMe span{
+color:#CFCFCF;
+font-size:0.8em;}

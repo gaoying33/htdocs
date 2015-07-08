@@ -44,48 +44,35 @@
 				<div class="navbar">
 			  		<div class="navbar-inner">
 						<ul class="sf-menu">
-							<li><a href="Index/index1">
+							<li><a href="homepage.html">
 								<img src="/Plugin/frontUI/img/splash_icon1.png" alt="" class="menu_img">
 								<img src="/Plugin/frontUI/img/splash_icon1_over.png" alt="" class="menu_img_over">
 								<div class="base_text">主页</div>
 								<div class="num_text">01</div>
 							    </a>
 						    </li>
-                			<li><a href="index-2.html">
+                			<li><a href="cmpNews.html">
                 				<img src="/Plugin/frontUI/img/splash_icon2.png" alt="" class="menu_img">
                 				<img src="/Plugin/frontUI/img/splash_icon2_over.png" alt="" class="menu_img_over">
                 				<div class="base_text">公司动态</div>
                 				<div class="num_text">02</div>
                 			    </a>
-                                <!--
-                                <ul class="subMenu">
-                                    <li><a href="index-7.html">Vestibulum</a>
-                                        <ul class="subMenu2">
-                                            <li><a href="index-7.html">archive</a></li>
-                                            <li><a href="index-7.html" class="last">fresh</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="index-7.html">Lacinia</a></li>
-                                    <li><a href="index-7.html">Proin dictum </a></li>
-                                    <li><a href="index-7.html" class="last">Elementum</a></li>
-                                </ul>
-                                -->
                             </li> 
-                            <li><a href="index-3.html">
+                            <li><a href="cmpIntro.html">
                             	<img src="/Plugin/frontUI/img/splash_icon3.png" alt="" class="menu_img">
                             	<img src="/Plugin/frontUI/img/splash_icon3_over.png" alt="" class="menu_img_over">
                             	<div class="base_text">公司简介</div>
                             	<div class="num_text">03</div>
                                 </a>
                             </li>
-                            <li><a href="index-4.html">
+                            <li><a href="product.html">
                             	<img src="/Plugin/frontUI/img/splash_icon4.png" alt="" class="menu_img">
                             	<img src="/Plugin/frontUI/img/splash_icon4_over.png" alt="" class="menu_img_over">
                             	<div class="base_text">产品展示</div>
                             	<div class="num_text">04</div>
                                 </a>
                             </li>
-                            <li><a href="index-5.html">
+                            <li><a href="jobInfo.html">
                             	<img src="/Plugin/frontUI/img/splash_icon5.png" alt="" class="menu_img">
                             	<img src="/Plugin/frontUI/img/splash_icon5_over.png" alt="" class="menu_img_over">
                             	<div class="base_text">招聘信息</div>
@@ -117,15 +104,7 @@
 <!--footer-->	
 		<footer>
 			<div class="container">
-			<!--一些社交网站的图标
-				<ul class="social_icons">
-					<li><a href="#"><img src="img/soc_icon_1.png" alt=""></a></li>
-					<li><a href="#"><img src="img/soc_icon_2.png" alt=""></a></li>
-					<li><a href="#"><img src="img/soc_icon_3.png" alt=""></a></li>
-					<li><a href="#"><img src="img/soc_icon_4.png" alt=""></a></li>
-				</ul>
-			-->
-				<p>【公司版权信息】<!--Miranda  &copy;  2013 &bull; <a href="index-8.html">Privacy Policy</a> --></p>
+				<p>【公司版权信息】</p>
 				<p>共享视界（北京）科技有限公司</p>
 			</div>
 		</footer>

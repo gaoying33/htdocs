@@ -1,0 +1,20 @@
+[ 2015-07-08T16:23:41+08:00 ] 185.25.151.159 http://testp1.piwo.pila.pl/testproxy.php
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.005167s ]
+INFO: [ route_check ] --END-- [ RunTime:0.005278s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.004430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004528s ]
+NOTIC: [8] Undefined variable: group D:\xampp\htdocs\ThinkPHP\Lib\Core\App.class.php 第 95 行.
+ERR: 无法加载模块:testproxy.php
+
+[ 2015-07-08T16:27:46+08:00 ] 0.0.0.0 /browserconfig.xml
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.004131s ]
+INFO: [ route_check ] --END-- [ RunTime:0.004220s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000534s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000580s ]
+NOTIC: [8] Undefined variable: group D:\xampp\htdocs\ThinkPHP\Lib\Core\App.class.php 第 95 行.
+ERR: 无法加载模块:browserconfig.xml
+

@@ -1,0 +1,10 @@
+[ 2015-06-23T20:49:24+08:00 ] 119.96.73.20 /login.action
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001373s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001483s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+NOTIC: [8] Undefined variable: group D:\xampp\htdocs\ThinkPHP\Lib\Core\App.class.php 第 95 行.
+ERR: 无法加载模块:login.action
+

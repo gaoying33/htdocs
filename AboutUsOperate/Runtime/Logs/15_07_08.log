@@ -1,0 +1,30 @@
+[ 2015-07-08T18:43:32+08:00 ] 115.231.217.153 /login.action
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001349s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001462s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000941s ]
+NOTIC: [8] Undefined variable: group D:\xampp\htdocs\ThinkPHP\Lib\Core\App.class.php 第 95 行.
+ERR: 无法加载模块:login.action
+
+[ 2015-07-08T18:45:49+08:00 ] 115.231.217.153 /user.action
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001401s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001516s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000859s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000941s ]
+NOTIC: [8] Undefined variable: group D:\xampp\htdocs\ThinkPHP\Lib\Core\App.class.php 第 95 行.
+ERR: 无法加载模块:user.action
+
+[ 2015-07-08T18:47:25+08:00 ] 115.231.217.153 /login.do
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001048s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001160s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000736s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000815s ]
+NOTIC: [8] Undefined variable: group D:\xampp\htdocs\ThinkPHP\Lib\Core\App.class.php 第 95 行.
+ERR: 无法加载模块:login.do
+

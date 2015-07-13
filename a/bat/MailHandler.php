@@ -1,47 +1,64 @@
 <?php
-	$owner_email = $_POST["owner_email"];
-	$email =  $_POST["email"];
-	$headers = 'From:' . $_POST["email"] . "\r\n" . 'Reply-To: ' . $email . "\r\n" . 'Content-Type: text/plain; charset=UTF-8' . "\r\n";
-	$subject = 'A message from your site visitor ' . $_POST["name"];
-	$messageBody = "";
-	
-	if($_POST['name']!='nope'){
-		$messageBody .= '<p>Visitor: ' . $_POST["name"] . '</p>' . "\n";
-		$messageBody .= '<br>' . "\n";
+   error_reporting(0);
+    require_once "email.class.php";
+    
+    $smtpserver = "smtp.163.com";
+	$smtpserverport =25;
+	$smtpusermail = "amygao92@163.com";
+	$smtpuser = "amygao92";
+	$smtppass = "421319gaoying";
+
+    //相关发送信息
+    $smtpemailto = $_POST['toemail'];//要发到的公司邮箱地址
+    $type = $_POST["mailType"]; // 判断法需求还是问题
+
+    if ($type == 1)//需求 
+    {
+    	
+    	$requestDescribe = $_POST['requestDescribe'];
+    	$timeRequest = $_POST['timeRequest'];
+    	$requestPerson = $_POST['requestPerson'];
+    	$contactPhone = $_POST['contactPhone'];
+        $requestContent =  $_POST['content'];
+        
+        $mailtype = "HTML";
+	    $mailtitle = 'A request from your site visitor';
+		$mailcontent = "<h1>需求描述".$requestDescribe."</h1>". "\n";
+	    $mailcontent .= "<p>完成时间要求： ".$timeRequest."</p>". "\n";
+        $mailcontent .= "<p>称呼： ".$requestPerson."</p>". "\n";
+        $mailcontent .= "<p>联系电话： ".$contactPhone."</p>". "\n";	
+        $mailcontent .= "<p>详细需求： ".$requestContent."</p>". "\n";
+    }
+    
+    if ($type ==2)//问题
+    {
+
+        $requestPerson = $_POST['requestPerson'];
+    	$contactPhone = $_POST['contactPhone'];
+    	$contactMail = $_POST['contactMail'];
+        $questionContent =  $_POST['content'];
+    	 
+        $mailtype = "HTML";
+	    $mailtitle = 'A feedback problem from your site visitor';
+	    $mailcontent = "<h1>问题反馈</h1>". "\n";
+        $mailcontent .= "<p>称呼： ".$requestPerson."</p>". "\n";
+        $mailcontent .= "<p>联系电话： ".$contactPhone."</p>". "\n";
+        $mailcontent .= "<p>联系邮箱： ".$contactMail."</p>". "\n";
+        $mailcontent .= "<p>详细描述： ".$questionContent."</p>". "\n";
+
+    }
+
+    $smtp = new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);
+	$smtp->debug = false;
+	$state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
+
+	if($state=="")
+	{
+		echo "fail";
 	}
-	if($_POST['email']!='nope'){
-		$messageBody .= '<p>Email Address: ' . $_POST['email'] . '</p>' . "\n";
-		$messageBody .= '<br>' . "\n";
-	}else{
-		$headers = '';
+	else
+	{
+       echo "success";
 	}
-	if($_POST['state']!='nope'){		
-		$messageBody .= '<p>State: ' . $_POST['state'] . '</p>' . "\n";
-		$messageBody .= '<br>' . "\n";
-	}
-	if($_POST['phone']!='nope'){		
-		$messageBody .= '<p>Phone Number: ' . $_POST['phone'] . '</p>' . "\n";
-		$messageBody .= '<br>' . "\n";
-	}	
-	if($_POST['fax']!='nope'){		
-		$messageBody .= '<p>Fax Number: ' . $_POST['fax'] . '</p>' . "\n";
-		$messageBody .= '<br>' . "\n";
-	}
-	if($_POST['message']!='nope'){
-		$messageBody .= '<p>Message: ' . $_POST['message'] . '</p>' . "\n";
-	}
-	
-	if($_POST["stripHTML"] == 'true'){
-		$messageBody = strip_tags($messageBody);
-	}
-	
-	try{
-		if(!mail($owner_email, $subject, $messageBody, $headers)){
-			throw new Exception('mail failed');
-		}else{
-			echo 'mail sent';
-		}
-	}catch(Exception $e){
-		echo $e->getMessage() ."\n";
-	}
+
 ?>

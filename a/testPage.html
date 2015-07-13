@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="zh-cmn-Hans">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="jquery.ba-resize.min.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="jquery.animate-colors-min.js"></script>
+<script type="text/javascript" src="jquery.backgroundpos.min.js"></script>		
+<script type="text/javascript" src="jquery.fancybox.pack.js"></script>		
+<script type="text/javascript" src="jquery.cycle.all.min.js"></script>			
+  	<!--[if lt IE 9]>
+	   	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <link href="css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+<script type="text/javascript">
+		function newsfunc()
+		{
+			$.ajax({
+							type: "GET",
+							url:'bat/NewsHandler.php',
+							data:{
+							    count:6		//参数--要的条目数：								
+							},
+									
+							success: function(data){
+								var result = JSON.parse(data);
+								//var len = result.length;  长度
+								alert(result);	
+							}
+				});
+		}
+</script>
+
+
+
+
+
+
+</head>
+<body>
+<!--content wrapper-->
+	<div id="wrapper">
+		<section>
+			<div class="container">
+				<div class="dynamicContent">
+					<!--content-->
+					<button type="button" onclick="newsfunc()">主页-科技前沿</button>
+                    <button type="button" onclick="sendRequestMailfunc()">联系我们-需求提交</button>
+                    <button type="button" onclick="sendQuesionMailfunc()">联系我们-问题反馈</button><br/>
+                    <button type="button" onclick="getContactfunc()">联系我们-联系方式</button>
+                    <button type="button" onclick="getCompanyProfilefuc()">公司简介</button>
+
+				</div>
+			</div>
+		</section>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	function sendRequestMailfunc()
+	{
+		$.ajax({
+						type: "POST",
+						url:'bat/MailHandler.php',
+						data:{
+						    toemail:'273971237@qq.com',
+							mailType:1,
+							requestDescribe:'一个系统',
+							timeRequest:'2015年8月',
+							requestPerson: '高小姐',
+							contactPhone:'15001235098',
+							content:'哈哈ha',							
+						},
+								
+						success: function(data){
+							//var result = JSON.parse(data);
+							//var len = result.length;  长度
+							alert(data);	
+						}
+			});
+	}
+
+</script> 
+<script type="text/javascript">
+ function getCompanyProfilefuc()
+ {
+
+ 	$.ajax({
+						type: "POST",
+						url:'bat/CompanyProfileHandler.php',
+						data:{
+						
+						},
+								
+						success: function(data){
+
+							var result = JSON.parse(data);
+							//var len = result.length;  长度
+							
+							alert(result['part1']);	
+							alert(result['part2']);	
+							alert(result['part3']);	
+							alert(result['part4']);	
+
+						}
+			});
+
+
+ }
+</script>
+
+
+<script type="text/javascript">
+	function getContactfunc()
+	{
+         $.ajax({
+						type: "POST",
+						url:'bat/CompanyInfoHandler.php',
+						data:{
+						
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							//var len = result.length;  长度
+							alert(result['address']);	
+							alert(result['phone']);	
+							alert(result['mail']);	
+							alert(result['fax']);	
+						}
+			});
+
+	}
+</script>
+<script type="text/javascript">
+
+function sendQuesionMailfunc()
+	{
+         $.ajax({
+						type: "POST",
+						url:'bat/MailHandler.php',
+						data:{
+						    toemail:'273971237@qq.com',
+							mailType:2,
+							requestPerson: '高小姐',
+							contactPhone:'15001235098',
+							contactMail:'273971237@qq.com',
+							content:'哈哈ha',							
+						},
+								
+						success: function(data){
+							//var result = JSON.parse(data);
+							//var len = result.length;  长度
+							alert(data);	
+						}
+			});
+
+	}
+
+</script>
+
+
+
+
+</html>
+
+

@@ -1,5 +1,8 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
+        error_reporting(0);
+        $needNum = $_GET["count"];
+
         $rssfeed = array("http://news.baidu.com/n?cmd=1&class=technnews&tn=rss");  
    
    //设置编码为UTF-8 
@@ -28,36 +31,48 @@
             xml_parser_free($parser); 
             
             $num =0;
+            $tag ="";
+            $type ="";
+            $value  ="";
+            $is_item = 0;
+            $rss_str ="";
+            $arrayList = array();
+
             foreach ($values as $val) 
             { 
                  
-                
                     $tag = $val["tag"]; 
                     $type = $val["type"]; 
-                    $value = $val["value"]; 
+                  //  $value = $val["value"]; 
                     //标签统一转为小写 
                     $tag = strtolower($tag); 
 
-                    if ($tag == "item" && $type == "open"){ 
+                    if ($tag == "item" && $type == "open")
+                    { 
                         $is_item = 1; 
-                    }else if ($tag == "item" && $type == "close") { 
+                    }
+                    else if ($tag == "item" && $type == "close")
+                     { 
                         //构造输出字符串 
                         $num = $num +1;
-                        if ($num>5) {
+                        if ($num> $needNum) 
+                        {
                             break;
                         }
-                        $rss_str .= "<li>
-                        <a href='".$link."' target=_blank>".$title."</a>
-                    </li>
-                    "; 
+                        $arrayList[]=  "<li> <a href='".$link."' target=_blank>".$title."</a></li>"; 
                         $is_item = 0; 
                     } 
                     //仅读取item标签中的内容 
-                    if($is_item==1){ 
-                        if ($tag == "title") {$title = $value;}         
-                        if ($tag == "link") {$link = $value;} 
+                    if($is_item==1)
+                    { 
+                      //  $value = $val["value"]; 
+                        if ($tag == "title") {$title =$val["value"];}         
+                        if ($tag == "link") {$link = $val["value"];} 
                     } 
                
             } 
            //输出结果 
-            echo $rss_str;
+          //  echo $rss_str
+          
+         echo json_encode($arrayList);
+?>

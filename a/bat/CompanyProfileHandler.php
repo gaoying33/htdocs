@@ -19,39 +19,45 @@
    $part4 = "";
    
    //读取表中纪录条数
-   $sql = sprintf("select * from %s where ci_type ='part1'", $DB_TABLENAME);
+   $sql = sprintf("select * from %s where ci_type ='describe_part1'", $DB_TABLENAME);
    $result = mysql_query($sql, $conn);
    if ($result)
-	  $address = mysql_fetch_row($result);
+	  $part1 = mysql_fetch_row($result);
    else
-	die("query failed");
+	 die("query failed");
    
-   $sql = sprintf("select * from %s where ci_type ='part2'", $DB_TABLENAME);
+   $sql = sprintf("select * from %s where ci_type ='describe_part2'", $DB_TABLENAME);
    $result = mysql_query($sql, $conn);
    if ($result)
-	  $address = mysql_fetch_row($result);
+	  $part2 = mysql_fetch_row($result);
    else
-	die("query failed");
+	 die("query failed");
 
 
-   $sql = sprintf("select * from %s where ci_type ='part3'", $DB_TABLENAME);
+   $sql = sprintf("select * from %s where ci_type ='describe_part3'", $DB_TABLENAME);
    $result = mysql_query($sql, $conn);
    if ($result)
-	  $address = mysql_fetch_row($result);
+	  $part3 = mysql_fetch_row($result);
    else
-	die("query failed");
+	 die("query failed");
 
 
-   $sql = sprintf("select * from %s where ci_type ='part4'", $DB_TABLENAME);
+   $sql = sprintf("select * from %s where ci_type ='describe_part4'", $DB_TABLENAME);
    $result = mysql_query($sql, $conn);
    if ($result)
-	  $address = mysql_fetch_row($result);
+	  $part4 = mysql_fetch_row($result);
    else
-	die("query failed");
+	 die("query failed");
 
 
-  
+  $arrayList = array(
+  	 'part1' => $part1[1],
+     'part2' => $part2[1],
+     'part3' => $part3[1],
+     'part4' => $part4[1] 
+  	);
 
-   
+   echo json_encode($arrayList);
+
 
 ?>

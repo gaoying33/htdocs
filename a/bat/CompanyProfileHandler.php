@@ -1,9 +1,6 @@
 <?php
-  
-   $DB_HOST ='localhost';
-   $DB_USER= 'root';
-   $DB_PASS='root';
-   $DB_DATABASENAME='aboutus';
+  //公司简介
+   require_once "DBConfig.php";
    $DB_TABLENAME='ab_companyinfo';
 
   //数据库表的列名

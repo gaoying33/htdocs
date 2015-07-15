@@ -1,5 +1,5 @@
 <?php
-// 本类由系统自动生成，仅供测试用途
+// 获取新闻动态
         error_reporting(0);
         $needNum = $_GET["count"];
 

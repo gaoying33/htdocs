@@ -34,7 +34,27 @@
 </script>
 
 
+<script type="text/javascript">
 
+function productDetailfunc()
+	{
+         $.ajax({
+						type: "POST",
+						url:'bat/ProductDetailHandler.php',
+						data:{		
+						   productID:2,//每页都少个				
+						},
+								
+						success: function(data){
+
+							var result = JSON.parse(data);
+						    alert("产品名："+result['name']+"\n\r 产品图片："+result['picture']+"\n\r 产品简介："+result['introduction']+" \n\r产品详情："+result['detail']);
+						}
+			});
+
+	}
+
+</script>
 
 
 
@@ -51,7 +71,10 @@
                     <button type="button" onclick="sendQuesionMailfunc()">联系我们-问题反馈</button><br/>
                     <button type="button" onclick="getContactfunc()">联系我们-联系方式</button>
                     <button type="button" onclick="getCompanyProfilefuc()">公司简介</button>
-
+                    <button type="button" onclick="recruitInfofunc()">招聘信息</button>
+                     <button type="button" onclick="productIntrofunc()">产品简介</button>
+                     <button type="button" onclick="productDetailfunc()">产品详情</button>
+                     
 				</div>
 			</div>
 		</section>
@@ -59,6 +82,9 @@
 	
 </body>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
+
 <script type="text/javascript">
 	function sendRequestMailfunc()
 	{
@@ -126,17 +152,14 @@
 						success: function(data){
 							var result = JSON.parse(data);
 							//var len = result.length;  长度
-							alert(result['address']);	
-							alert(result['phone']);	
-							alert(result['mail']);	
-							alert(result['fax']);	
+							alert(result);	
+							
 						}
 			});
 
 	}
 </script>
 <script type="text/javascript">
-
 function sendQuesionMailfunc()
 	{
          $.ajax({
@@ -163,6 +186,62 @@ function sendQuesionMailfunc()
 </script>
 
 
+<script type="text/javascript">
+
+function recruitInfofunc()
+	{
+         $.ajax({
+						type: "POST",
+						url:'bat/RecruitInfoHandler.php',
+						data:{		
+						   countPerPage:2,//每页都少个
+						   currentPage:0,//第几页，从第0页开始						
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							alert(result['totalCount']);
+							var len = result['recruitInfoList'].length;  
+							for (var i = 0; i < len; i++) 
+							{
+								alert(result['recruitInfoList'][i]);
+							}
+						}
+			});
+
+	}
+
+</script>
+
+<script type="text/javascript">
+
+function productIntrofunc()
+	{
+         $.ajax({
+						type: "POST",
+						url:'bat/ProductIntroHandler.php',
+						data:{		
+						countPerPage:2,//每页都少个
+						currentPage:0,//第几页，从第0页开始					
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+
+							alert(result['totalCount']);
+
+							var len = result['productInfoList'].length; 
+							
+							for (var i = 0; i < len; i++) 
+							{
+								alert(result['productInfoList'][i]['id']+" "+result['productInfoList'][i]['name']+" "+result['productInfoList'][i]['picture']+" "+result['productInfoList'][i]['introduction']);
+							}
+						}
+			});
+
+	}
+
+</script>
 
 
 </html>

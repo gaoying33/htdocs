@@ -29,24 +29,17 @@
 	                    	<h2>联系方式</h2>
 	                    	<!--figure class="g_map"><iframe src="http://map.baidu.com/"></iframe>公司地址地图显示</figure-->
                             <div class="address">
-                            	<div>
-                            		地址：北京市XX区XXXX街道XXX大厦XXX<br><br>
-                            	</div>
-                                <span class="phones_part">
-                                    电话: <span class="pull-right">1XXXXXXXXXX<br>1XXXXXXXXXX</span><br><br><br>
-                                    传真: <span class="pull-right">XXXXXXXXXXX</span><br><br>
-                                    邮箱: <a href="mailto:" class="mailLink"><!--email_off-->mail@163.com<!--/email_off--></a>
-                                </span>
+                            	<!--此处动态添加联系方式-->
                             </div>
 	                    </div>
                         <div class="span4">
                             <h2>需求提交</h2>
                             <form id="form2">
-                                <div class="success"> 
+                                <!--div class="success"> 
                                   <div class="success_txt"> 
                                     您的需求已经提交<br><strong>我们将在第一时间联系您！</strong> 
                                   </div>
-                                </div>
+                                </div-->
                                 <fieldset>
                                     <label class="requirement">
                                         <input type="text" value="一句话简要描述您的需求:">
@@ -71,7 +64,7 @@
                                         <br class="clear">
                                     <div class="btns" style="margin-right:20px">
                                         <a href="#" class="more btn btn-link" data-type="reset">清空</a>
-                                        <a href="#" class="more btn btn-link" data-type="submit">提交</a>
+                                        <a href="#" class="more btn btn-link" data-type="submit" onclick="sendRequestMailfunc()">提交</a>
                                     </div>
                                 </fieldset>
                             </form>
@@ -79,11 +72,11 @@
 	                    <div class="span3">
 	                    	<h2>问题反馈</h2>
 	                    	<form id="form1">
-                                <div class="success"> 
+                                <!--div class="success"> 
                                   <div class="success_txt"> 
                                     您的问题已经提交<br><strong>我们将在第一时间联系您！</strong> 
                                   </div>
-                                </div>
+                                </div-->
                                 <fieldset>
                                     <label class="name">
                                         <input type="text" value="您的称呼:">
@@ -100,7 +93,7 @@
                                         <br class="clear">
                                     <div class="btns">
                                         <a href="#" class="more btn btn-link" data-type="reset">清空</a>
-                                        <a href="#" class="more btn btn-link" data-type="submit">提交</a>
+                                        <a href="#" class="more btn btn-link" data-type="submit" onclick="sendQuesionMailfunc()">提交</a>
                                     </div>
                                 </fieldset>
                             </form>
@@ -115,5 +108,68 @@
         jQuery('#form1').forms({ownerEmail:'#'})
         jQuery('#form2').forms({ownerEmail:'#'})
     </script>
+    <script type="text/javascript">
+        function sendQuesionMailfunc()
+        {
+            $.ajax({
+                        type: "POST",
+                        url:'../handler/MailHandler.php',
+                        data:{
+                            toemail:'905363146@qq.com',
+                            mailType:2,
+                            requestPerson: $("#form1 .name input").val(),
+                            contactPhone: $("#form1 .phone input").val(),
+                            contactMail: $("#form1 .email input").val(),
+                            content: $("#form1 .message textarea").val(),                         
+                        },
+                                
+                        success: function(data){
+                            //var result = JSON.parse(data);
+                            //var len = result.length;  长度
+                            alert("您的问题已经提交，我们将在第一时间联系您！");    
+                        }
+                });
+        }
+
+        function sendRequestMailfunc()
+        {
+            $.ajax({
+                        type: "POST",
+                        url:'../handler/MailHandler.php',
+                        data:{
+                            toemail:'905363146@qq.com',
+                            mailType:1,
+                            requestDescribe:$("#form2 .requirement input").val(),
+                            timeRequest:$("#form2 .time input").val(),
+                            requestPerson: $("#form2 .name input").val(),
+                            contactPhone:$("#form2 .phone input").val(),
+                            content:$("#form2 .message textarea").val(),                         
+                        },
+                                
+                        success: function(data){
+                            //var result = JSON.parse(data);
+                            //var len = result.length;  长度
+                            alert("您的需求已经提交，我们将在第一时间联系您！");    
+                        }
+                });
+        }
+        $(function getContactfunc()
+        {
+             $.ajax({
+                            type: "POST",
+                            url:'../handler/CompanyInfoHandler.php',
+                            data:{
+                            
+                            },
+                                    
+                            success: function(data){
+                                var result = JSON.parse(data);
+                                //var len = result.length;  长度
+                                $(".address").html(result);  
+                            }
+                });
+
+        });
+    </script> 
 </body>
 </html>

@@ -29,18 +29,14 @@
 	                    	<h2>公司新闻</h2>
 	                    	<!--img src="img/page2_pic1.jpg" alt="" class="img-polaroid imgIndent"-->
 	                    	<div class="box">
-	                    		<ul class="listWithMarker v2">
-	                                <li><a href="#">公司员工XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">公司将于XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">公司XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">公司XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">公司XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">公司XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">XXXXX公司XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
-	                                <li><a href="#">XXXXXXXXXXXXX公司XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
+	                    		<ul class="listWithMarker v2" id="newsList">
+	                    			<!--此处动态添加新闻列表-->
 	                            </ul>
-	                            <a href="#" class="more btn btn-link" style="text-align:center">上页</a>
-	                            <a href="#" class="more btn btn-link">下页</a>
+	                            <div>
+		                            <a href="#" class="more btn btn-link" onclick="lastPage()" style="text-align:center">上页</a>
+		                            <a href="#" class="more btn btn-link" onclick="nextPage()">下页</a>
+		                            <p style="display:none;" id="pageNo">0</p>
+	                        	</div>
 	                    	</div>
 	                    </div>
 	                    <div class="span4">
@@ -58,11 +54,6 @@
 								<img src="img/page2_pic5.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">图片描述</span></span>
 							</a>
 	                    </div>
-
-
-
-
-
 	                </div>
 				</div>
 			</div>
@@ -71,6 +62,85 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script>
         $(".fancybox").fancybox({});
+    </script>
+    <script type="text/javascript">
+    	$(function getCompanyNews()
+		{
+			var pageNo = $("#pageNo").text();
+	        $.ajax({
+						type: "POST",
+						url:'../handler/CompanyNewsHandler.php',
+						data:{		
+						countPerPage:7,//每页多少个
+						currentPage:pageNo,//第几页，从第0页开始					
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							var len = result['newsList'].length; 
+							$("#newsList").empty();
+							for (var i = 0; i < len; i++) 
+							{
+								var $html = " <li><a href='newsDetails.html?id=" + i + "'>" + result['newsList'][i]['title'] + "</a></li>";
+								$("#newsList").append($html);
+							}
+						}
+				});
+		});
+
+		function nextPage(){
+			$.ajax({
+						type: "POST",
+						url:'../handler/CompanyNewsHandler.php',
+						data:{		
+						countPerPage:7,//每页多少个
+						currentPage:$("#pageNo").text()+1,//第几页，从第0页开始					
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							var len = result['newsList'].length; 
+							alert(len);
+							var pageNo = $("#pageNo").text();
+							
+							$("#newsList").empty();
+							for (var i = 0; i < len; i++) 
+							{
+								var $html = " <li><a href='newsDetails.html?id=" + i + "'>" + result['newsList'][i]['title'] + "</a></li>";
+								$("#newsList").append($html);
+							}
+						}
+				});
+		}
+
+		function lastPage(){
+			var pageNo = $("#pageNo").text();
+			pageNo--;
+			if(pageNo < 0){
+				pageNo++;
+				return;
+			}
+			$("#pageNo").text(pageNo);
+			$.ajax({
+						type: "POST",
+						url:'../handler/CompanyNewsHandler.php',
+						data:{		
+						countPerPage:7,//每页多少个
+						currentPage:pageNo,//第几页，从第0页开始					
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							var len = result['newsList'].length; 
+							$("#newsList").empty();
+							for (var i = 0; i < len; i++) 
+							{
+								var $html = " <li><a href='newsDetails.html?id=" + i + "'>" + result['newsList'][i]['title'] + "</a></li>";
+								$("#newsList").append($html);
+							}
+						}
+				});
+		}
     </script>
 </body>
 </html>

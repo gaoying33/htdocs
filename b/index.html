@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>公司简介-共享视界（北京）科技有限公司</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/colorpicker.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
+<link rel="stylesheet" href="css/uniform.css" />
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/matrix-style.css" />
+<link rel="stylesheet" href="css/matrix-media.css" />
+<link rel="stylesheet" href="css/bootstrap-wysihtml5.css" />
+<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!--Header-part-->
+<div id="header">
+  <h1><a href="dashboard.html">共享视界</a></h1>
+</div>
+<!--close-Header-part--> 
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" >
+      <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
+        <i class="icon icon-user"></i>  
+        <span class="text">管理员</span>
+      </a>
+    </li>
+    <li class="">
+      <a title="" href="login.html">
+        <i class="icon icon-share-alt"></i> 
+        <span class="text">登出</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<!--close-top-Header-menu-->
+
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i>网页信息</a>
+  <ul>
+    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>公司简介</span></a> </li>
+    <li> <a href="cmpNews.html"><i class="icon icon-signal"></i> <span>公司动态</span></a> </li>
+    <li> <a href="jobInfo.html"><i class="icon icon-inbox"></i> <span>招聘信息</span></a> </li>
+    <li><a href="product.html"><i class="icon icon-th"></i> <span>产品信息</span></a></li>
+    <li><a href="contactUs.html"><i class="icon icon-fullscreen"></i> <span>联系方式</span></a></li>
+  </ul>
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>公司简介</a></div>
+    <h1><b>公司简介</b></h1>
+  </div>
+
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid" style="margin-bottom:3em;">
+      <div class="span8">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+            <h5>第一部分</h5>
+          </div>
+          <div class="widget-content" id="part1"> 这里是第一部分的内容</div>
+          <div class="widget-content" id="editP1" style="display:none;">
+            <div class="control-group">
+              <form>
+                <div class="controls" id="textP1">
+                  <!--textarea class="textarea_editor span12" rows="6"></textarea-->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button class="btn btn-info btn-mini" onclick="edit(1)" id="edit1">修改</button>
+          <button class="btn btn-info btn-mini" onclick="save(1)" id="save1" style="display:none;">保存</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row-fluid" style="margin-bottom:3em;">
+      <div class="span8">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+            <h5>第二部分</h5>
+          </div>
+          <div class="widget-content" id="part2"> 这里是第二部分的内容</div>
+          <div class="widget-content" id="editP2" style="display:none;">
+            <div class="control-group">
+              <form>
+                <div class="controls" id="textP2">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button class="btn btn-info btn-mini" onclick="edit(2)" id="edit2">修改</button>
+          <button class="btn btn-info btn-mini" onclick="save(2)" id="save2" style="display:none;">保存</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row-fluid" style="margin-bottom:3em;">
+      <div class="span8">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+            <h5>第三部分</h5>
+          </div>
+          <div class="widget-content" id="part3"> 这里是第三部分的内容</div>
+          <div class="widget-content" id="editP3" style="display:none;">
+            <div class="control-group">
+              <form>
+                <div class="controls" id="textP3">
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button class="btn btn-info btn-mini" onclick="edit(3)" id="edit3">修改</button>
+          <button class="btn btn-info btn-mini" onclick="save(3)" id="save3" style="display:none;">保存</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid" style="margin-bottom:3em;">
+      <div class="span8">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+            <h5>第四部分</h5>
+          </div>
+          <div class="widget-content" id="part4"> 这里是第四部分的内容</div>
+          <div class="widget-content" id="editP4" style="display:none;">
+            <div class="control-group">
+              <form>
+                <div class="controls" id="textP4">
+                 
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button class="btn btn-info btn-mini" onclick="edit(4)" id="edit4">修改</button>
+          <button class="btn btn-info btn-mini" onclick="save(4)" id="save4" style="display:none;">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-main-container-part-->
+
+<script type="text/javascript">
+  $(function getCompanyProfilefuc()
+  {
+
+    $.ajax({
+            type: "POST",
+            url:'../handler/CompanyProfileHandler.php',
+            data:{
+              },
+                    
+            success: function(data){
+              var result = JSON.parse(data);
+              //var len = result.length;  长度
+              $("#part1").html(result['part1']);  
+              $("#part2").html(result['part2']);  
+              $("#part3").html(result['part3']);  
+              $("#part4").html(result['part4']);  
+          }
+    });
+  }); 
+</script>
+<script src="js/jquery.min.js"></script> 
+<script src="js/jquery.ui.custom.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/bootstrap-colorpicker.js"></script> 
+<script src="js/bootstrap-datepicker.js"></script> 
+<script src="js/jquery.toggle.buttons.html"></script> 
+<script src="js/masked.js"></script> 
+<script src="js/jquery.uniform.js"></script> 
+<script src="js/select2.min.js"></script> 
+<script src="js/matrix.js"></script> 
+<script src="js/matrix.form_common.js"></script> 
+<script src="js/wysihtml5-0.3.0.js"></script> 
+<script src="js/jquery.peity.min.js"></script> 
+<script src="js/bootstrap-wysihtml5.js"></script> 
+<script type="text/javascript">
+  function edit(part)
+  {
+      if(part == 1)
+      {
+        $("#part1").css("display","none");
+        $("#edit1").css("display","none");
+        $("#save1").css("display","inline");
+        $("#editP1").css("display","inline");
+        var $html = "<textarea class='textarea_editor1 span12' rows='6'>" +  $("#part1").html() + "</textarea>"
+        $("#textP1").empty();
+        $("#textP1").append($html);
+        $('.textarea_editor1').wysihtml5();
+      }
+      else if(part == 2)
+      {
+        $("#part2").css("display","none");
+        $("#edit2").css("display","none");
+        $("#save2").css("display","inline");
+        $("#editP2").css("display","inline");
+        var $html = "<textarea class='textarea_editor2 span12' rows='6'>" +  $("#part2").html() + "</textarea>"
+        $("#textP2").empty();
+        $("#textP2").append($html);
+        $('.textarea_editor2').wysihtml5();
+      }
+      else if(part == 3)
+      {
+        
+        $("#part3").css("display","none");
+        $("#edit3").css("display","none");
+        $("#save3").css("display","inline");
+        $("#editP3").css("display","inline");
+        var $html = "<textarea class='textarea_editor3 span12' rows='6'>" +  $("#part3").html() + "</textarea>"
+        $("#textP3").empty();
+        $("#textP3").append($html);
+        $('.textarea_editor3').wysihtml5();
+      }
+      else if(part == 4)
+      {
+        
+        $("#part4").css("display","none");
+        $("#edit4").css("display","none");
+        $("#save4").css("display","inline");
+        $("#editP4").css("display","inline");
+        var $html = "<textarea class='textarea_editor4 span12' rows='6'>" +  $("#part4").html() + "</textarea>"
+        $("#textP4").empty();
+        $("#textP4").append($html);
+        $('.textarea_editor4').wysihtml5();
+      }
+  }
+
+  function save(part)
+  {
+    if(part == 1)
+      {
+        $("#part1").css("display","inline");
+        $("#edit1").css("display","inline");
+        $("#save1").css("display","none");
+        $("#editP1").css("display","none");
+        $.ajax({
+            type: "POST",
+            url:'../handler/UpdateCompanyProfileHandler.php',
+            data:{
+                updatePart:'1', //更新的部分【1，4】
+                newProfileInfo:$("#textP1>textarea").val(),         
+            },
+                
+            success: function(data){
+              alert(data);  
+            }
+        });
+        $("#part1").html($("#textP1>textarea").val());
+      }
+      else if(part == 2)
+      {
+        $("#part2").css("display","inline");
+        $("#edit2").css("display","inline");
+        $("#save2").css("display","none");
+        $("#editP2").css("display","none");
+        $.ajax({
+            type: "POST",
+            url:'../handler/UpdateCompanyProfileHandler.php',
+            data:{
+                updatePart:'2', //更新的部分【1，4】
+                newProfileInfo:$("#textP2>textarea").val(),         
+            },
+                
+            success: function(data){
+              alert(data);  
+            }
+        });
+        $("#part2").html($("#textP2>textarea").val());
+      }
+      else if(part == 3)
+      {
+        
+        $("#part3").css("display","inline");
+        $("#edit3").css("display","inline");
+        $("#save3").css("display","none");
+        $("#editP3").css("display","none");
+        $.ajax({
+            type: "POST",
+            url:'../handler/UpdateCompanyProfileHandler.php',
+            data:{
+                updatePart:'3', //更新的部分【1，4】
+                newProfileInfo:$("#textP3>textarea").val(),         
+            },
+                
+            success: function(data){
+              alert(data);  
+            }
+        });
+        $("#part3").html($("#textP3>textarea").val());
+      }
+      else if(part == 4)
+      {
+        
+        $("#part4").css("display","inline");
+        $("#edit4").css("display","inline");
+        $("#save4").css("display","none");
+        $("#editP4").css("display","none");
+        $.ajax({
+            type: "POST",
+            url:'../handler/UpdateCompanyProfileHandler.php',
+            data:{
+                updatePart:'4', //更新的部分【1，4】
+                newProfileInfo:$("#textP4>textarea").val(),         
+            },
+                
+            success: function(data){
+              alert(data);  
+            }
+        });
+        $("#part4").html($("#textP4>textarea").val());
+      }
+  }
+</script>
+</body>
+</html>

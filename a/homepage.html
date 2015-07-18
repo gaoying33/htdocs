@@ -28,9 +28,11 @@
 	                <div class="row">
 	                    <div class="span5">
 	                    	<h2>欢迎走进共享视界</h2>
-	                    	<img src="img/page1_pic1.jpg" alt="公司宣传图片" class="img-polaroid imgIndent">
-	                    	<div class="box">
-	                    		<p>共享视界（北京）科技有限公司是。。。（公司简介）</p>
+	                    	<!--img src="img/page1_pic1.jpg" alt="公司宣传图片" class="img-polaroid imgIndent"-->
+	                    	<div class="box" style="line-height:1.2em;">
+	                    		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp共享视界（北京）科技有限公司是以共享、记录为核心思想的计算机网络技术公司。在当今社会潮流下，人们逐渐迷失于快捷的生活，而忘记了思考生活的含义，也同时失去了规划生活的能力。因此，我公司计划记录每个普通人的电子生活，形成一套完整的档案，并力求在分享和评价的过程中，为其他人增添人生的感悟。从而在这个快节奏的社会中，用“共享视界”的方式，去除现有的浮躁之气。</br>
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp视界，是人们所见之界，当今世界虽大，但于个人而言，所见之界（视界）才是真正拥有最高价值和意义的。创立者认为，人的最主要财富，非是金钱、人脉及技能，而是时间。时间是独有的，不可共享，那么唯有岁月沉积，化时间为经历、经验，便可共享于他人。当然，“一千个读者眼中有一千个哈姆雷特”，所以，同时也将我当时所见之事，选择性的共享于他人，让他人同时有所领悟。
+								</p>
 	                    	</div>
 	                    	<div class="wrapper">
 	                    		<a href="cmpIntro.html" class="more btn btn-link">更多..</a>
@@ -39,15 +41,12 @@
 	                    </div>
 	                    <div class="span3">
 	                    	<h2>科技前沿</h2>
-	                    	<ul class="listWithMarker v2">
-	                                <li><a href="http://tech.163.com/15/0602/10/AR3N0378000915BD.html" target="_blank">【网易科技】网传Apple TV不会在本次WWDC上发布</a></li>
-	                                <li><a href="http://tech.163.com/15/0602/10/AR3LTPT8000915BD.html" target="_blank">【网易科技】任天堂E3大展前发布多款游戏</a></li>
-	                                <li><a href="http://tech.163.com/15/0602/05/AR36FJI8000915BD.html" target="_blank">【网易科技】微软公布Windows 10系统和硬件要求</a></li>
-	                                <li><a href="http://tech.163.com/photoview/5FVH0009/6979.html#p=AR3A3JKJ5FVH0009" target="_blank">【网易科技】加州3D打印大会中最炫酷的展品</a></li>
-	                                <li><a href="http://tech.163.com/15/0528/12/AQN16PAS00094P0U.html" target="_blank">【网易科技】"深度学习"研究将加速带我们进入人工智能时代</a></li>
-	                        </ul>
-	                    	<a href="http://tech.163.com/" target="_blank" class="more btn btn-link">更多..</a>
-	                    	<input type="button" onclick="aaa()" ></input>
+	                    	<div>
+		                    	<ul class="listWithMarker v2" id="techNews">
+		                            <!--动态添加新闻内容-->
+		                        </ul>
+	                    	</div>
+	                    	<div><a href="http://tech.163.com/" target="_blank" class="more btn btn-link">更多..</a></div>
 	                    </div>
 	                     <div class="span2">
 	                    	<h2>您的需求</h2>
@@ -63,18 +62,22 @@
 	</div>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript">
-		function aaa(){
+		$(function newsfunc()
+		{
 			$.ajax({
 						type: "GET",
-						url:'bat/NewsHandler.php',
-						data:{										
+						url:'../handler/NewsHandler.php',
+						data:{
+							count:6		//参数--要的条目数：								
 						},
-								
+									
 						success: function(data){
-							alert(data);	
+							var result = JSON.parse(data);
+							//var len = result.length;  长度
+							$("#techNews").html(result);
 						}
-			});
-		}
+				});
+		});
 	</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 					notRequiredCl:'notRequired',
 					successCl:'success',
 					successShow:'4000',
-					mailHandlerURL:'bat/MailHandler.php',
+					mailHandlerURL:'../handler/MailHandler.php',
 					ownerEmail:'905363146@qq.com',
 					stripHTML:true,
 					smtpMailServer:'localhost',
@@ -19,7 +19,7 @@
 					controls:'a[data-type=reset],a[data-type=submit]',
 					validate:true,
 					rx:{
-						".name":{rx:/^[a-zA-Z'][a-zA-Z-']+[a-zA-Z']?$/,target:'input'},
+						".name":{rx:/.{1}/,target:'input'},
 						".state":{rx:/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/,target:'input'},
 						".email":{rx:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,target:'input'},
 						".phone":{rx:/^\+?(\d[\d\-\+\(\) ]{5,}\d$)/,target:'input'},
@@ -99,8 +99,9 @@
 					,submitFu:function(){
 						_.validateFu(_.labels)							
 						if(!_.form.has('.'+_.invalidCl).length)
+							
 							$.ajax({
-								type: "POST",
+								/*type: "POST",
 								url:_.mailHandlerURL,
 								data:{
 									name:_.getValFromLabel($('.name',_.form)),
@@ -113,11 +114,12 @@
 									stripHTML:_.stripHTML
 								},
 								success: function(data){
-									alert(data);
+									//alert(data);
 									_.showFu()
  
-								}
-							})			
+								}*/
+							})	
+
 					},
 					showFu:function(){
 						_.success.slideDown(function(){

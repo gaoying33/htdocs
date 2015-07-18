@@ -1,0 +1,46 @@
+<html lang="zh-cmn-Hans">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="jquery.ba-resize.min.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="jquery.animate-colors-min.js"></script>
+<script type="text/javascript" src="jquery.backgroundpos.min.js"></script>		
+<script type="text/javascript" src="jquery.fancybox.pack.js"></script>		
+<script type="text/javascript" src="jquery.cycle.all.min.js"></script>			
+  	<!--[if lt IE 9]>
+	   	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <link href="css/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+   
+<script type="text/javascript">
+	function check()
+		{
+		$.ajax({
+							type: "GET",
+							url:'../handler/CheckHandler.php',	
+							success: function(data){
+								//alert(data);	
+								if (data == false) 
+								{
+								    //没有登陆时将页面重新定向到登陆页面			
+                                    window.location.href="testPage.html"; 
+								}
+							}
+				});
+      
+
+
+		}
+
+
+</script>
+
+</head>
+<body onload = "check()">
+ <label>欢迎！</label>
+	
+</body>
+</html>

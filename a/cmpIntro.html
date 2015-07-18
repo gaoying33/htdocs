@@ -26,33 +26,33 @@
 					<!--content-->
 	                <div class="row">
 	                	<div class="span10">
-	                		<h2>新视界是什么？（##这里的布局根据你所给内容灵活更改##）</h2>
+	                		<h2>新视界是什么？</h2>
 	                	</div>
 	                    <div class="span5">
-	                    	<div class="wrapper2 marBot2">
+	                    	<div class="wrapper2 marBot2"  style="height:8em;">
 	                    		<img src="img/page3_pic1.png" alt="公司起源" class="imgIndent2">
-		                    	<div class="box">
-		                    		<p>新视界成立于。。。是。。。 <br><br><br><br><br></p>
+		                    	<div class="box part1" style="line-height:1.5em; padding-right:1em; padding-left:1em;">
+		                    		这里是第一部分内容
 		                    	</div>
 	                    	</div>
-	                    	<div class="wrapper2">
+	                    	<div class="wrapper2"  style="height:8em;">
 	                    		<img src="img/page3_pic2.png" alt="公司宗旨" class="imgIndent2">
-		                    	<div class="box">
-		                    		<p>新视界的宗旨是。。。服务于。。。 </p>
+		                    	<div class="box part3" style="line-height:1.5em; padding-right:1em; padding-left:1em;">
+		                    		 这里是第三部分内容
 		                    	</div>
 	                    	</div>
 	                    </div>
 	                    <div class="span5">
-	                    	<div class="wrapper2 marBot2">
+	                    	<div class="wrapper2 marBot2"  style="height:8em;">
 	                    		<img src="img/page3_pic3.png" alt="服务范围" class="imgIndent2">
-		                    	<div class="box">
-		                    		<p>新视界的服务范围是。。。主要做。。。<br><br><br><br><br></p>
+		                    	<div class="box part2" style="line-height:1.5em; padding-right:1em; padding-left:1em;">
+		                    		这里是第二部分内容
 		                    	</div>
 	                    	</div>
-	                    	<div class="wrapper2">
+	                    	<div class="wrapper2"  style="height:8em;">
 	                    		<img src="img/page3_pic4.png" alt="公司员工" class="imgIndent2">
-		                    	<div class="box">
-		                    		<p>新视界现在有员工。。。主要为。。。</p>
+		                    	<div class="box part4" style="line-height:1.5em; padding-right:1em; padding-left:1em;">
+		                    		这里是第四部分内容
 		                    	</div>
 	                    	</div>
 	                    </div>
@@ -65,5 +65,27 @@
 	<script>
         $(".fancybox").fancybox({});
     </script>
+    <script type="text/javascript">
+		$(function getCompanyProfilefuc()
+		 {
+
+		 	$.ajax({
+						type: "POST",
+						url:'../handler/CompanyProfileHandler.php',
+						data:{
+							},
+										
+						success: function(data){
+
+							var result = JSON.parse(data);
+							//var len = result.length;  长度
+							$(".part1").html(result['part1']);	
+							$(".part2").html(result['part2']);	
+							$(".part3").html(result['part3']);	
+							$(".part4").html(result['part4']);	
+						}
+				});
+		 }); 
+	</script>
 </body>
 </html>

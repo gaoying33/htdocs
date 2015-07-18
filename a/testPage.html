@@ -143,6 +143,8 @@ function productDetailfunc()
                         <button type="button" onclick="logoutfunc()">退出</button>
                         <br/>
                         <button type="button" onclick="allCompanyNewsfunc()">所有公司新闻</button>
+                        <button type="button" onclick="allProductfunc()">所有产品</button>
+                        <button type="button" onclick="moveUpProductfunc()">上移新闻</button>
 				</div>
 
 			</div>
@@ -157,8 +159,44 @@ function productDetailfunc()
 
 
 <script type="text/javascript">
+function moveUpProductfunc()
+{
+   $.ajax({
+				type: "POST",
+				url:'../handler/CompanyNewsMoveUpHandler.php',
+				data:{
+					id1:6,
+					id2:7
+				},
+						
+				success: function(data){
+					alert(data);
+				}
+			});
+
+}
 
 
+function allProductfunc()
+{
+   $.ajax({
+				type: "POST",
+				url:'../handler/AllProductInfoHandler.php',
+				data:{
+				},
+						
+				success: function(data){
+					var result = JSON.parse(data);
+					var len = result.length; 
+					
+					for (var i = 0; i < len; i++) 
+					{
+						alert(result[i]['id']+" "+result[i]['name']+" "+result[i]['picture']+" "+result[i]['introduction']);
+					}	
+				}
+			});
+   
+}
 function allCompanyNewsfunc()
 {
 		$.ajax({
@@ -173,7 +211,7 @@ function allCompanyNewsfunc()
 							
 							for (var i = 0; i < len; i++) 
 							{
-								alert(result[i]['id']+" "+result[i]['title']+" "+result[i]['detail']);
+								alert(result[i]['id']+" "+result[i]['title']+" "+result[i]['detail']+"rank "+result[i]['rank']);
 							}	
 						}
 			});

@@ -13,10 +13,29 @@
 
    
    //读取表中纪录条数
-   $sql = sprintf("insert into %s (c_newstitle,c_newsdetail) values ('%s','%s')", $DB_TABLENAME, 
+   $sql = sprintf("insert into %s (c_newstitle,c_newsdetail,c_rank) values ('%s','%s',-1)", $DB_TABLENAME, 
    	$title,$detail);
    
    $result = mysql_query($sql, $conn);
+
+   $sql = sprintf("select c_newsid from %s where c_rank = -1", $DB_TABLENAME);
+   $result = mysql_query($sql, $conn);
+
+   if ($result)
+   {
+        $row = mysql_fetch_array($result);
+        $id = $row[0];
+   }  
+   else
+   {
+           die("query failed");
+
+   }
+      
+   $sql = sprintf("update %s set c_rank = %d where c_newsid = %d", $DB_TABLENAME,$id,$id);
+
+   $result = mysql_query($sql, $conn);
+
    mysql_close($conn);
 
    echo "addSuccess";

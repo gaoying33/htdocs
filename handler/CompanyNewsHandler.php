@@ -42,7 +42,7 @@
    $arrayList = array();
    
    //读取表中纪录条数
-   $sql = sprintf("select * from %s", $DB_TABLENAME);
+   $sql = sprintf("select * from %s order by c_rank", $DB_TABLENAME);
    $result = mysql_query($sql, $conn);
   
    if ($result)

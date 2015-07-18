@@ -28,9 +28,10 @@
      $endIndex = $countPerPage + $startIndex;
    
    if ($startIndex>=$totalCount) {
-      $startIndex = $totalCount - $countPerPage;
-      $endIndex = $totalCount;
+      $currentPage = floor($totalCount/$countPerPage);
 
+      $startIndex = $countPerPage * $currentPage;
+      $endIndex = $countPerPage + $startIndex;
   }
  
 

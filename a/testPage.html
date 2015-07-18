@@ -141,6 +141,8 @@ function productDetailfunc()
                         <button type="button" onclick="loginfunc()">登陆</button>
                         <button type="button" onclick="changePassfunc()">修改密码</button>
                         <button type="button" onclick="logoutfunc()">退出</button>
+                        <br/>
+                        <button type="button" onclick="allCompanyNewsfunc()">所有公司新闻</button>
 				</div>
 
 			</div>
@@ -155,6 +157,29 @@ function productDetailfunc()
 
 
 <script type="text/javascript">
+
+
+function allCompanyNewsfunc()
+{
+		$.ajax({
+						type: "POST",
+						url:'../handler/AllCompanyNewsHandler.php',
+						data:{
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							var len = result.length; 
+							
+							for (var i = 0; i < len; i++) 
+							{
+								alert(result[i]['id']+" "+result[i]['title']+" "+result[i]['detail']);
+							}	
+						}
+			});
+
+}
+
 
     function loginfunc()
 		 { 
@@ -210,7 +235,7 @@ function productDetailfunc()
 		 { 
 		 	$.ajax({
 						type: "POST",
-						url:'../handler/AddProductInfoHandler.php',
+						url:'../handler/UpdateCompanyInfoHandler.php',
 						data:{
 						    newContactInfo:'地址：北京市XX区XXXX街道XXX大厦XXX电话: 1XXXXXXXXXX 1XXXXXXXXXX传真: XXXXXXXXXXX邮箱: MAIL@163.COM newhaha',							
 						},

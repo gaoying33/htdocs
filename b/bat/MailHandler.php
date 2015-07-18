@@ -1,4 +1,5 @@
 <?php
+//提交需求和问题
    error_reporting(0);
     require_once "email.class.php";
     

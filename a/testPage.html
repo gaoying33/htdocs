@@ -468,20 +468,20 @@ function allCompanyNewsfunc()
 						type: "POST",
 						url:'../handler/OtherPictureHandler.php',
 						data:{		
-						countPerPage:2,//每页都少个
-						currentPage:0,//第几页，从第0页开始					
+								
 						},
 								
 						success: function(data){
+                          
 							var result = JSON.parse(data);
 
-							alert(result['totalCount']);
+					
 
-							var len = result['pictureList'].length; 
+							var len = result.length; 
 							
 							for (var i = 0; i < len; i++) 
 							{
-								alert(result['pictureList'][i]['id']+" "+result['pictureList'][i]['url']);
+								alert(result[i]['id']+" "+result[i]['url']);
 							}
 						}
 			});

@@ -11,7 +11,7 @@
 
    
    //读取表中纪录条数
-  $sql = sprintf("delete from %s where p_url = %d", $DB_TABLENAME, $url);
+  $sql = sprintf("delete from %s where p_id = %d", $DB_TABLENAME, $id);
    $result = mysql_query($sql, $conn);
    mysql_close($conn);
 

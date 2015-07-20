@@ -22,7 +22,9 @@
 $(document).ready(
 	function() {
 		$("#upload_file").change(function() {
-			if ($("#upload_file").val() != '') $("#submit_form").submit();
+			if ($("#upload_file").val() != ''){
+				$("#submit_form").submit();
+			} 
 			//后台有判断类型选择是否上传，这里最好也判断下，避免传太多数据-
 		});
 
@@ -34,8 +36,6 @@ $(document).ready(
 		          if(data =='success')
 				     $("#upload_file").val('');
 		        }
-		      
-			
 		});
 	}
 );
@@ -128,9 +128,9 @@ function productDetailfunc()
                       
                       <!--关于文件操作的隐式控件!!!!!-->
 		              <form id="submit_form" method="post" action="../handler/AddPictureHandler.php" target="exec_target" enctype="multipart/form-data" style="display:none;">
-					<input type="file" name="upload_file" id="upload_file">	
-				     </form>
-				   <iframe id="exec_target" name="exec_target" style="display:none;"></iframe>	
+							<input type="file" name="upload_file" id="upload_file">	
+				      </form>
+				   	  <iframe id="exec_target" name="exec_target" style="display:none;"></iframe>	
                     
                         <button type="button" onclick="addPicfunc()">上传增加图片</button>
 
@@ -173,7 +173,6 @@ function moveUpProductfunc()
 					alert(data);
 				}
 			});
-
 }
 
 
@@ -379,7 +378,7 @@ function allCompanyNewsfunc()
 						type: "POST",
 						url:'../handler/DeleteProductInfoHandler.php',
 						data:{
-                            id:6,
+                            id:9,
 						},
 								
 						success: function(data){

@@ -25,9 +25,8 @@
 				<div class="dynamicContent">
 					<!--content-->
 	                <div class="row">
-	                    <div class="span10">
-	                    	<b>产品名称</b>
-                            <p>产品详情内容（用户自己编辑）Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus.<br>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi.<br><br>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br>Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta.</p>
+	                    <div class="span10" id="prodtDetail">
+	                    	<h2 id="prodtName"></h2>
 	                    </div>
 	                </div>
 				</div>
@@ -35,6 +34,30 @@
 		</section>
 	</div>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(function getCompanyNews()
+		{
+			var thisURL = document.URL;    
+  			var getval =thisURL.split('?')[1];  
+  			var showval= getval.split("=")[1]; 
 
+	        $.ajax({
+						type: "POST",
+						url:'../handler/ProductDetailHandler.php',
+						data:{	
+							productID:showval,		
+						},
+								
+						success: function(data){
+							var result = JSON.parse(data);
+							 
+  							$("#prodtName").text(result['name']);
+  							var $html="<img src='../upload/" + result['picture'] + "' alt='暂无产品图片信息' style='min-width:160px; max-height:145px'></br>"
+  							$("#prodtDetail").append($html);
+  							$("#prodtDetail").append(result['detail']);
+						}
+				});
+		});
+	</script>
 </body>
 </html>

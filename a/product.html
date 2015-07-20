@@ -27,39 +27,9 @@
 				<div class="dynamicContent">
 					<!--content-->
 	                <div class="row">
-
-	                    <div class="span11">
+	                    <div class="span11" id="prodtShow">
 	                    	<h2>产品展示</h2>
-	                    	<div class="wrapper img_col1">
-	                    		<a class="fancybox" href="img/page4_big_pic1.jpg" rel="index">
-									<img src="img/page4_pic1.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">产品名称</span></span>
-								</a>
-								<p><a href="productDetails.html">这款软件是。。。。。</a></p>
-	                    	</div>
-	                    	<div class="wrapper img_col1">
-	                    		<a class="fancybox" href="img/page4_big_pic2.jpg" rel="index">
-									<img src="img/page4_pic2.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">产品名称</span></span>
-								</a>
-								<p><a href="productDetails.html">这款软件是。。。。。</a></p>
-	                    	</div>
-	                    	<div class="wrapper img_col1">
-	                    		<a class="fancybox" href="img/page4_big_pic3.jpg" rel="index">
-									<img src="img/page4_pic3.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">产品名称</span></span>
-								</a>
-								<p><a href="productDetails.html">这款软件是。。。。。</a></p>
-	                    	</div>
-	                    	<div class="wrapper img_col1">
-	                    		<a class="fancybox" href="img/page4_big_pic1.jpg" rel="index">
-									<img src="img/page4_pic1.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">产品名称</span></span>
-								</a>
-								<p><a href="productDetails.html">这款软件是。。。。。</a></p>
-	                    	</div>
-	                    	<div class="wrapper img_col1">
-	                    		<a class="fancybox" href="img/page4_big_pic5.jpg" rel="index">
-									<img src="img/page4_pic5.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">产品名称</span></span>
-								</a>
-								<p><a href="productDetails.html">这款软件是。。。。。</a></p>
-	                    	</div>
+	                    	<!--此处动态添加产品信息-->
 	                    </div>
 	                </div>
 				</div>
@@ -69,6 +39,28 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script>
         $(".fancybox").fancybox({});
+    </script>
+    <script type="text/javascript">
+    	$(function productIntrofunc()
+		{
+	        $.ajax({
+				type: "POST",
+				url:'../handler/AllProductInfoHandler.php',
+				data:{					
+				},
+									
+				success: function(data){
+					var result = JSON.parse(data);
+					var len = result.length; 
+
+					for (var i = 0; i < len; i++) 
+					{
+						var $html = "<div class='wrapper img_col1'><div style='height:11em;'><a class='fancybox' href='productDetails.html?id=" + result[i]['id'] + "' rel='index' style='position:absolute; bottom:33px'><img src='../upload/" + result[i]['picture'] + "' alt='暂无产品图片信息' class='img-polaroid' style='min-width:160px; max-height:145px'><span class='zoom animate'><span class='txt'>查看产品详情</span></span></a></div><p style='width:160px; text-align:center;'>"+ result[i]['name']+"</p></div>";
+						$("#prodtShow").append($html);
+					}
+				}
+			});
+		});
     </script>
 </body>
 </html>

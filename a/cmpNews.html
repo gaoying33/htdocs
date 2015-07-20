@@ -33,13 +33,22 @@
 	                    			<!--此处动态添加新闻列表-->
 	                            </ul>
 	                            <div>
-		                            <a href="#" class="more btn btn-link" onclick="lastPage()" style="text-align:center">上页</a>
-		                            <a href="#" class="more btn btn-link" onclick="nextPage()">下页</a>
+		                            <a id = "lastPg" href="#" class="more btn btn-link" onclick="lastPage()" display="none">上页</a>
+		                            <a id = "nextPg" href="#" class="more btn btn-link" onclick="nextPage()">下页</a>
 		                            <p style="display:none;" id="pageNo">0</p>
 	                        	</div>
 	                    	</div>
 	                    </div>
 	                    <div class="span4">
+	                    	<h2>科技前沿</h2>
+	                    	<div>
+		                    	<ul class="listWithMarker v2" id="techNews">
+		                            
+		                        </ul>
+	                    	</div>
+	                    	<div><a href="http://tech.163.com/" target="_blank" class="more btn btn-link">更多..</a></div>
+	                    </div>
+	                    <!--div class="span4">
 	                    	<h2>新闻图片</h2>
 	                    	<a class="fancybox" href="img/page2_big_pic1.jpg" rel="index">
 								<img src="img/page2_pic2.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">图片描述</span></span>
@@ -53,7 +62,7 @@
 							<a class="fancybox marRight0" href="img/page2_big_pic4.jpg" rel="index">
 								<img src="img/page2_pic5.jpg" alt="" class="img-polaroid"><span class="zoom animate"><span class="txt">图片描述</span></span>
 							</a>
-	                    </div>
+	                    </div-->
 	                </div>
 				</div>
 			</div>
@@ -63,6 +72,24 @@
 	<script>
         $(".fancybox").fancybox({});
     </script>
+    <script type="text/javascript">
+		$(function newsfunc()
+		{
+			$.ajax({
+						type: "GET",
+						url:'../handler/NewsHandler.php',
+						data:{
+							count:6		//参数--要的条目数：								
+						},
+									
+						success: function(data){
+							var result = JSON.parse(data);
+							//var len = result.length;  长度
+							$("#techNews").html(result);
+						}
+				});
+		});
+	</script>
     <script type="text/javascript">
     	$(function getCompanyNews()
 		{
@@ -78,6 +105,10 @@
 						success: function(data){
 							var result = JSON.parse(data);
 							var len = result['newsList'].length; 
+							if(result['totalCount'] <= len){
+								$("#nextPg").attr("display","none");
+							}
+
 							$("#newsList").empty();
 							for (var i = 0; i < len; i++) 
 							{
@@ -100,9 +131,19 @@
 						success: function(data){
 							var result = JSON.parse(data);
 							var len = result['newsList'].length; 
-							alert(len);
 							var pageNo = $("#pageNo").text();
-							
+							pageNo++;
+							if(pageNo*7 >= result['totalCount']){
+								$("#nextPg").attr("display","none");
+								pageNo--;	
+							}
+							else{
+								$("#pageNo").text(pageNo);
+							}
+							if($("#pageNo").text() != 0){
+								$("#lastPg").attr("display","inline");
+							}
+
 							$("#newsList").empty();
 							for (var i = 0; i < len; i++) 
 							{
@@ -132,6 +173,7 @@
 						success: function(data){
 							var result = JSON.parse(data);
 							var len = result['newsList'].length; 
+							$("#nextPg").attr("display","inline");
 							$("#newsList").empty();
 							for (var i = 0; i < len; i++) 
 							{

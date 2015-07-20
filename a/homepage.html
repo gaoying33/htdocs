@@ -26,7 +26,7 @@
 				<div class="dynamicContent">
 					<!--content-->
 	                <div class="row">
-	                    <div class="span5">
+	                    <div class="span7">
 	                    	<h2>欢迎走进共享视界</h2>
 	                    	<!--img src="img/page1_pic1.jpg" alt="公司宣传图片" class="img-polaroid imgIndent"-->
 	                    	<div class="box" style="line-height:1.2em;">
@@ -39,20 +39,20 @@
 	                    	</div>
 
 	                    </div>
-	                    <div class="span3">
+	                    <!--div class="span3">
 	                    	<h2>科技前沿</h2>
 	                    	<div>
 		                    	<ul class="listWithMarker v2" id="techNews">
-		                            <!--动态添加新闻内容-->
+		                            
 		                        </ul>
 	                    	</div>
 	                    	<div><a href="http://tech.163.com/" target="_blank" class="more btn btn-link">更多..</a></div>
-	                    </div>
-	                     <div class="span2">
+	                    </div-->
+	                     <div class="span3">
 	                    	<h2>您的需求</h2>
 	                    	<p>如果您想让我们为您私人订制软件产品，请点击<a href="contactUs.html" class="btn-link">需求提交</a><br><br>
 	                    	   如果您有什么问题或建议需要反馈给我们，请点击<a href="contactUs.html" class="btn-link">问题反馈</a><br><br>
-	                    	   如果您需要线上支付平台支付某些款项，请点击<a href="#" class="btn-link">线上支付</a><br><br>
+	                    	   如果您需要线上支付平台支付某些款项，请点击<a href="#" class="btn-link">线上支付</a>（暂未开通）<br><br>
 	                    	</p>
 	                    </div>
 	                </div>
@@ -61,23 +61,6 @@
 		</section>
 	</div>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript">
-		$(function newsfunc()
-		{
-			$.ajax({
-						type: "GET",
-						url:'../handler/NewsHandler.php',
-						data:{
-							count:6		//参数--要的条目数：								
-						},
-									
-						success: function(data){
-							var result = JSON.parse(data);
-							//var len = result.length;  长度
-							$("#techNews").html(result);
-						}
-				});
-		});
-	</script>
+	
 </body>
 </html>

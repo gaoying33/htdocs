@@ -48,6 +48,7 @@
     <li class="active"> <a href="cmpNews.html"><i class="icon icon-signal"></i> <span>公司动态</span></a> </li>
     <li> <a href="jobInfo.html"><i class="icon icon-inbox"></i> <span>招聘信息</span></a> </li>
     <li><a href="product.html"><i class="icon icon-th"></i> <span>产品信息</span></a></li>
+    <li><a href="picture.html"><i class="icon icon-picture"></i> <span>图片列表</span></a></li>
     <li><a href="contactUs.html"><i class="icon icon-fullscreen"></i> <span>联系方式</span></a></li>
   </ul>
 </div>
@@ -87,24 +88,24 @@
 </div>
 <!--end-main-container-part-->
 <script type="text/javascript">
-  $(function getCompanyNews()
+  $(function allCompanyNewsfunc()
     {
           $.ajax({
             type: "POST",
-            url:'../handler/CompanyNewsHandler.php',
-            data:{    
-            countPerPage:7,//每页多少个
-            currentPage:0,//第几页，从第0页开始         
+            url:'../handler/AllCompanyNewsHandler.php',
+            data:{           
             },
                 
             success: function(data){
               var result = JSON.parse(data);
-              var len = result['newsList'].length; 
-              alert(result['totalCount']);
+              var len = result.length; 
               $("#newsList").empty();
-              for (var i = 0; i < len; i++) 
+
+              var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=0'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick='moveUpProductfunc(" + result[0]['id'] + "," + result[0]['id'] + ")'>上移</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result[0]['id'] + ")'>删除</a></div>" + result[0]['title'] + "</div></li>";
+                $("#newsList").append($html);
+              for (var i = 1; i < len; i++) 
               {
-                var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick=''>置顶</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result['newsList'][i]['id'] + ")'>删除</a></div>" + result['newsList'][i]['title'] + "</div></li>";
+                var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick='moveUpProductfunc(" + result[i-1]['id'] + "," + result[i]['id'] + ")'>上移</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result[i]['id'] + ")'>删除</a></div>" + result[i]['title'] + "</div></li>";
                 $("#newsList").append($html);
               }
             }
@@ -122,27 +123,63 @@
                 
             success: function(data){
               alert("动态删除成功");  
-              $.ajax({
+                $.ajax({
                   type: "POST",
-                  url:'../handler/CompanyNewsHandler.php',
-                  data:{    
-                  countPerPage:7,//每页多少个
-                  currentPage:0,//第几页，从第0页开始         
+                  url:'../handler/AllCompanyNewsHandler.php',
+                  data:{           
                   },
                       
                   success: function(data){
                     var result = JSON.parse(data);
-                    var len = result['newsList'].length; 
+                    var len = result.length; 
                     $("#newsList").empty();
-                    for (var i = 0; i < len; i++) 
+
+                    var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=0'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick='moveUpProductfunc(" + result[0]['id'] + "," + result[0]['id'] + ")'>上移</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result[0]['id'] + ")'>删除</a></div>" + result[0]['title'] + "</div></li>";
+                      $("#newsList").append($html);
+                    for (var i = 1; i < len; i++) 
                     {
-                      var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick=''>置顶</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result['newsList'][i]['id'] + ")'>删除</a></div>" + result['newsList'][i]['title'] + "</div></li>";
+                      var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick='moveUpProductfunc(" + result[i-1]['id'] + "," + result[i]['id'] + ")'>上移</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result[i]['id'] + ")'>删除</a></div>" + result[i]['title'] + "</div></li>";
                       $("#newsList").append($html);
                     }
                   }
               });
             }
       });
+  }
+
+  function moveUpProductfunc(ID1, ID2)
+  {
+     $.ajax({
+          type: "POST",
+          url:'../handler/CompanyNewsMoveUpHandler.php',
+          data:{
+            id1:ID1,
+            id2:ID2,
+          },
+              
+          success: function(data){
+            $.ajax({
+                type: "POST",
+                url:'../handler/AllCompanyNewsHandler.php',
+                data:{           
+                },
+                    
+                success: function(data){
+                  var result = JSON.parse(data);
+                  var len = result.length; 
+                  $("#newsList").empty();
+
+                  var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=0'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick='moveUpProductfunc(" + result[0]['id'] + "," + result[0]['id'] + ")'>上移</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result[0]['id'] + ")'>删除</a></div>" + result[0]['title'] + "</div></li>";
+                    $("#newsList").append($html);
+                  for (var i = 1; i < len; i++) 
+                  {
+                    var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='newsDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-success btn-mini' onclick='moveUpProductfunc(" + result[i-1]['id'] + "," + result[i]['id'] + ")'>上移</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteNewsfunc(" + result[i]['id'] + ")'>删除</a></div>" + result[i]['title'] + "</div></li>";
+                    $("#newsList").append($html);
+                  }
+                }
+            });
+          }
+        });
   }
 </script>
 

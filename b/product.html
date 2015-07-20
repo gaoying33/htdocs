@@ -48,6 +48,7 @@
     <li> <a href="cmpNews.html"><i class="icon icon-signal"></i> <span>公司动态</span></a> </li>
     <li> <a href="jobInfo.html"><i class="icon icon-inbox"></i> <span>招聘信息</span></a> </li>
     <li class="active"><a href="product.html"><i class="icon icon-th"></i> <span>产品信息</span></a></li>
+    <li><a href="picture.html"><i class="icon icon-picture"></i> <span>图片列表</span></a></li>
     <li><a href="contactUs.html"><i class="icon icon-fullscreen"></i> <span>联系方式</span></a></li>
   </ul>
 </div>
@@ -65,58 +66,80 @@
     <div class="row-fluid">
       <div class="span8">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-            <h5>第一部分</h5>
+
+          <div class="widget-title"> <span class="icon"> <i class="icon-legal"></i> </span>
+            <h5>产品列表</h5>
           </div>
-          <div class="widget-content"> 新视界成立于。。。是。。。</div>
+
+          <div class="widget-content nopadding">
+            <ul class="recent-posts" id="newsList">
+              <!--此处动态添加所有产品名称-->
+            </ul>
+          </div>
+        </div>
+        <div style="text-align:center">
+          <a class="btn btn-warning btn-mini" href="productDetail.html?id=-1">添加新产品</a>
         </div>
       </div>
-    </div>
-    <div class="span9 text-right">
-      <button class="btn btn-info btn-mini">修改该部分</button>
-    </div>
-    <div class="row-fluid">
-      <div class="span8">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-            <h5>第二部分</h5>
-          </div>
-          <div class="widget-content"> 新视界的服务范围是。。。主要做。。。</div>
-        </div>
-      </div>
-    </div>
-    <div class="span9 text-right">
-      <button class="btn btn-info btn-mini">修改该部分</button>
-    </div>
-    <div class="row-fluid">
-      <div class="span8">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-            <h5>第三部分</h5>
-          </div>
-          <div class="widget-content"> 新视界的宗旨是。。。服务于。。。</div>
-        </div>
-      </div>
-    </div>
-    <div class="span9 text-right">
-      <button class="btn btn-info btn-mini">修改该部分</button>
-    </div>
-    <div class="row-fluid">
-      <div class="span8">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-            <h5>第四部分</h5>
-          </div>
-          <div class="widget-content"> 新视界现在有员工。。。主要为。。。</div>
-        </div>
-      </div>
-    </div>
-    <div class="span9 text-right">
-      <button class="btn btn-info btn-mini">修改该部分</button>
     </div>
   </div>
+
 </div>
 <!--end-main-container-part-->
+<script type="text/javascript">
+  $(function allProductfunc()
+  {
+     $.ajax({
+          type: "POST",
+          url:'../handler/AllProductInfoHandler.php',
+          data:{
+          },
+              
+          success: function(data){
+            var result = JSON.parse(data);
+            var len = result.length; 
+            $("#newsList").empty();
+            for (var i = 0; i < len; i++) 
+            {
+              var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='productDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteProductInfofunc(" + result[i]['id'] + ")'>删除</a></div>" + result[i]['name'] + "</div></li>";
+                $("#newsList").append($html);
+            } 
+          }
+      });
+  });
+
+  function deleteProductInfofunc(ID)
+  { 
+      $.ajax({
+            type: "POST",
+            url:'../handler/DeleteProductInfoHandler.php',
+            data:{
+                  id:ID,
+            },
+   
+            success: function(data){
+              alert("删除成功");
+              $.ajax({
+                  type: "POST",
+                  url:'../handler/AllProductInfoHandler.php',
+                  data:{
+                  },
+                      
+                  success: function(data){
+                    var result = JSON.parse(data);
+                    var len = result.length; 
+                    $("#newsList").empty();
+                    for (var i = 0; i < len; i++) 
+                    {
+                      var $html = "<li><div class='article-post'><div class='fr'><a class='btn btn-primary btn-mini' href='productDetail.html?id=" + i + "'>" + "编辑</a>&nbsp&nbsp<a class='btn btn-danger btn-mini' onclick='deleteProductInfofunc(" + result[i]['id'] + ")'>删除</a></div>" + result[i]['name'] + "</div></li>";
+                        $("#newsList").append($html);
+                    } 
+                  }
+              });
+            }
+      });
+  }
+</script>
 
 </body>
 </html>

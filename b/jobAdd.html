@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-<title>公司动态-共享视界（北京）科技有限公司</title>
+<title>添加招聘信息-共享视界（北京）科技有限公司</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -60,8 +60,8 @@
 <!--main-container-part-->
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>公司动态</a></div>
-    <h1><b>公司动态</b></h1>
+    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>添加招聘信息</a></div>
+    <h1><b>添加招聘信息</b></h1>
   </div>
 
   <div class="container-fluid">
@@ -71,35 +71,23 @@
         <div class="widget-box">
 
           <div class="widget-title"> <span class="icon"> <i class="icon-file"></i> </span>
-            <h5>公司动态详情</h5>
+            <h5>添加招聘信息</h5>
           </div>
 
-          <div class="widget-content nopadding">
-            <form action="#" method="get" class="form-horizontal">
-              <div class="control-group">
-                <label class="control-label">标题：</label>
+           <div class="widget-content">
+            <div class="control-group">
+              <form>
                 <div class="controls">
-                  <input type="text" class="span11" id="newsTitle"/>
+                  <textarea class="textarea_editor span12" rows="6"></textarea>
                 </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">内容：</label>
-                <div class="widget-content">
-                  <div class="control-group">
-                    <form>
-                      <div class="controls" id="newsDetail">
-                        <!--textarea class="textarea_editor span12" rows="6"></textarea-->
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
+
         </div>
         <div style="text-align:center">
-          <button class="btn btn-warning btn-mini" onclick="updateNewsfunc()">&nbsp&nbsp&nbsp保&nbsp&nbsp存&nbsp&nbsp&nbsp</button>&nbsp&nbsp&nbsp&nbsp
-          <a href="cmpNews.html"><button class="btn btn-primary btn-mini">&nbsp&nbsp&nbsp取&nbsp&nbsp消&nbsp&nbsp&nbsp</button></a>
+          <button class="btn btn-warning btn-mini" onclick="insertRecruitfunc()">&nbsp&nbsp&nbsp保&nbsp&nbsp存&nbsp&nbsp&nbsp</button>&nbsp&nbsp&nbsp&nbsp
+          <a href="jobInfo.html"><button class="btn btn-primary btn-mini">&nbsp&nbsp&nbsp取&nbsp&nbsp消&nbsp&nbsp&nbsp</button></a>
         </div>
       </div>
     </div>
@@ -121,71 +109,21 @@
 
 <script type="text/javascript">
   var ID; 
-  $(function getCompanyNews(){
+  function insertRecruitfunc(){
            $.ajax({
             type: "POST",
-            url:'../handler/CompanyNewsHandler.php',
-            data:{    
-            countPerPage:7,//每页多少个
-            currentPage:0,//第几页，从第0页开始          
+            url:'../handler/AddRecruitInfoHandler.php',
+            data:{
+                addcontent:$(".textarea_editor").val(),             
             },
                 
             success: function(data){
-              var result = JSON.parse(data);
-              var thisURL = document.URL;    
-              var getval =thisURL.split('?')[1];  
-              var showval= getval.split("=")[1];  
-              if(showval==-1){
-                ID = -1;
-                var $html = "<textarea class='textarea_editor span12' rows='6'></textarea>";
-                $("#newsDetail").empty();
-                $("#newsDetail").append($html);
-                $('.textarea_editor').wysihtml5();
-              }
-              else{
-                ID = result['newsList'][showval]['id']
-                $("#newsTitle").val(result['newsList'][showval]['title']);  
-                var $html = "<textarea class='textarea_editor span12' rows='6'>" + result['newsList'][showval]['detail'] + "</textarea>";
-                $("#newsDetail").empty();
-                $("#newsDetail").append($html);
-                $('.textarea_editor').wysihtml5();
-              } 
+              alert("添加成功，将跳转回招聘信息页面");  
+              location.href = "jobInfo.html";  
             }
         });
-    });
-
-  function updateNewsfunc(){ 
-    if(ID == -1){
-      $.ajax({
-            type: "POST",
-            url:'../handler/AddCompanyNewsHandler.php',
-            data:{
-                    title:$("#newsTitle").val(),
-                    detail: $("#newsDetail>textarea").val(),          
-            },   
-            success: function(data){
-              alert("添加成功，将跳转回动态列表页面");  
-              location.href = "cmpNews.html";
-            }
-      });
-    }
-    else{
-      $.ajax({
-            type: "POST",
-            url:'../handler/UpdateCompanyNewsHandler.php',
-            data:{
-              id:ID,
-              title:$("#newsTitle").val(),
-              detail: $("#newsDetail>textarea").val(),
-            },
-                
-            success: function(data){
-              alert("修改成功，将跳转回动态列表页面");  
-              location.href = "cmpNews.html";
-            }
-      });
-    }
   }
+  $('.textarea_editor').wysihtml5();
 </script>
 
 </body>

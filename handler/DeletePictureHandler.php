@@ -16,7 +16,7 @@ $url = $_POST['url'];
 
    
    //读取表中纪录条数
-   $sql = sprintf("delete from %s where p_url = %d", $DB_TABLENAME, $url);
+   $sql = sprintf("delete from %s where p_url = %s", $DB_TABLENAME, $url);
    $result = mysql_query($sql, $conn);
    mysql_close($conn);
 

@@ -3,11 +3,11 @@
    error_reporting(0);
     require_once "email.class.php";
     
-    $smtpserver = "smtp.163.com";
-	$smtpserverport =25;
-	$smtpusermail = "amygao92@163.com";
-	$smtpuser = "amygao92";
-	$smtppass = "421319gaoying";
+    $smtpserver = "smtp.126.com";
+	$smtpserverport = 25;
+	$smtpusermail = "gongxiangshijie@126.com";
+	$smtpuser = "gongxiangshijie";
+	$smtppass = "beruiyptmbnqtaas";
 
     //相关发送信息
     $smtpemailto = $_POST['toemail'];//要发到的公司邮箱地址

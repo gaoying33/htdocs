@@ -5,9 +5,9 @@
     
     $smtpserver = "smtp.163.com";
 	$smtpserverport =25;
-	$smtpusermail = "amygao92@163.com";
+	$smtpusermail = "gongxiangshijie15@163.com";
 	$smtpuser = "amygao92";
-	$smtppass = "421319gaoying";
+	$smtppass = "gxsj15";
 
     //相关发送信息
     $smtpemailto = $_POST['toemail'];//要发到的公司邮箱地址

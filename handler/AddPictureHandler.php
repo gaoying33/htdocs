@@ -11,8 +11,7 @@ if ((($_FILES["upload_file"]["type"] == "image/gif")
 || ($_FILES["upload_file"]["type"] == "image/pjpeg")
 
 || ($_FILES["upload_file"]["type"] == "image/png"))
-
-&& ($_FILES["upload_file"]["size"] < 200000))
+)
 
   {
 

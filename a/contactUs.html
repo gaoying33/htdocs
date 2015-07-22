@@ -111,6 +111,9 @@
     <script type="text/javascript">
         function sendQuesionMailfunc()
         {
+            if($("#form1 .name input").val()==NULL||$("#form1 .phone input").val()==NULL||$("#form1 .email input").val()==NULL||$("#form1 .message textarea").val()==NULL){
+                return;
+            }
             $.ajax({
                         type: "POST",
                         url:'../handler/MailHandler.php',
@@ -133,6 +136,9 @@
 
         function sendRequestMailfunc()
         {
+            if($("#form2 .requirement input").val()==NULL||$("#form2 .time input").val()==NULL||$("#form2 .name input").val()==NULL||$("#form2 .phone input").val()==NULL||$("#form2 .message textarea").val()==NULL){
+                return;
+            }
             $.ajax({
                         type: "POST",
                         url:'../handler/MailHandler.php',

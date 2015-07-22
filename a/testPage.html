@@ -224,12 +224,13 @@ function allCompanyNewsfunc()
 						type: "POST",
 						url:'../handler/LoginHandler.php',
 						data:{
-						    name:'gy',//用户名
-						    pass:'123456',//密码
+						    name:'yangjing',//用户名
+						    pass:'yangjing',//密码
 
 						},
 								
 						success: function(data){
+							alert("失败也进来");
 							alert(data);	
 						}
 			});
@@ -251,19 +252,18 @@ function allCompanyNewsfunc()
 
 		 }
  function logoutfunc()
-		 { 
-		 	$.ajax({
-						type: "POST",
-						url:'../handler/LogoutHandler.php',
-						data:{											
-						},
+{ 
+	$.ajax({
+		type: "POST",
+		url:'../handler/LogoutHandler.php',
+		data:{											
+		},
 								
-						success: function(data){
-							alert(data);	
-						}
-			});
-
-		 }
+		success: function(data){
+			alert(data);	
+		}
+	});
+}
 
 
 
